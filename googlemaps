@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
+
+<script>
+var markers = [
+      ['a',36.865319,-76.050795],
+      ['b',42.065540,-87.987372],
+      ['c',38.123116,-79.087101],
+      ['d',38.082470,-78.554728],
+      ['e',45.853382,8.983814],
+      ['f',38.364829,-78.996689],
+      ['g',38.868727,-78.634200],
+      ['h',38.914697,-77.389860],
+      ['i',39.142671,-76.860565],
+      ['j',38.404990,-78.872234],
+      ['k',39.045166,-77.039175],
+      ['l',47.432978,18.512306],
+      ['m',38.167719,-78.679584],
+      ['n',38.895916,-77.161458],
+      ['o',38.390121,-78.611500]
+];
+
+function initializeMaps()
+{
+var latlng = new google.maps.LatLng(38.44,-78.88);
+var myOptions = {
+        center:latlng,        
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.TERRAIN
+    };
+var map = new google.maps.Map(document.getElementById("googleMap"),myOptions);
+var infowindow = new google.maps.InfoWindow(), marker, i;
+    for (i = 0; i < markers.length; i++) {  
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(markers[i][1], markers[i][2]),
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(markers[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+}
+
+google.maps.event.addDomListener(window, 'load', initializeMaps);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:2000px;height:800px;"></div>
+
+</body>
+</html>
