@@ -6,6 +6,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 </script>
 
 <script>
+//latlang of different zipcodes
 var markers = [
       ['a',36.865319,-76.050795],
       ['b',42.065540,-87.987372],
@@ -24,6 +25,7 @@ var markers = [
       ['o',38.390121,-78.611500]
 ];
 
+//standard google maps function
 function initializeMaps()
 {
 var latlng = new google.maps.LatLng(38.44,-78.88);
@@ -32,6 +34,8 @@ var myOptions = {
         zoom:5,
         mapTypeId:google.maps.MapTypeId.TERRAIN
     };
+
+//marker function
 var map = new google.maps.Map(document.getElementById("googleMap"),myOptions);
 var infowindow = new google.maps.InfoWindow(), marker, i;
     for (i = 0; i < markers.length; i++) {  
