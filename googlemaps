@@ -6,6 +6,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 </script>
 
 <script>
+//Concept for 'for' loop and code found at dreamdealer.net, Johan
 var markers = [
     ['a',36.865319,-76.050795],
     ['b',42.065540,-87.987372],
